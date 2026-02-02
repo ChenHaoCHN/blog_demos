@@ -25,8 +25,6 @@ import dev.langchain4j.data.embedding.Embedding;
 import dev.langchain4j.data.segment.TextSegment;
 import dev.langchain4j.model.embedding.EmbeddingModel;
 import dev.langchain4j.model.embedding.onnx.bgesmallzhv15q.BgeSmallZhV15QuantizedEmbeddingModel;
-import dev.langchain4j.store.embedding.EmbeddingStore;
-import dev.langchain4j.store.embedding.inmemory.InMemoryEmbeddingStore;
 
 /**
  * 通义千问服务类，用于与通义千问模型进行交互
@@ -37,22 +35,7 @@ public class QwenService {
     private static final Logger logger = LoggerFactory.getLogger(QwenService.class);
 
     @Autowired
-    private Assistant assistant;
-
-    @Autowired
     private IndexConfig clickHouseConfig;
-
-    /**
-     * 通过提示词range大模型返回JSON格式的内容
-     * 
-     * @param prompt
-     * @return
-     */
-    public String byRagNaive(String prompt) {
-        String answer = assistant.byRagNaive(prompt);
-        logger.info("响应：" + answer);
-        return answer + "[from byRagNaive]";
-    }
 
     private void doIndex() {
         // 每个分块创建嵌入向量，模型是智源 bge-small-zh-v1.5 量化版，中文 C-MTEB 第一梯队
