@@ -96,5 +96,6 @@
     <module>rag-naive</module>
     <module>rag-clickhouse-index</module>
     <module>rag-clickhouse-query</module>
+    <module>classify-by-llm</module>
   </modules>
 </project>
