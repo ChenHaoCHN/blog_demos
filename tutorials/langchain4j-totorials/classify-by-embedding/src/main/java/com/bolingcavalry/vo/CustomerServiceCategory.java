@@ -1,0 +1,11 @@
+package com.bolingcavalry.vo;
+
+public enum CustomerServiceCategory {
+    BILLING_AND_PAYMENTS,
+    TECHNICAL_SUPPORT,
+    ACCOUNT_MANAGEMENT,
+    PRODUCT_INFORMATION,
+    ORDER_STATUS,
+    RETURNS_AND_EXCHANGES,
+    FEEDBACK_AND_COMPLAINTS
+}

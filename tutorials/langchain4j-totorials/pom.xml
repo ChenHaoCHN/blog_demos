@@ -97,5 +97,6 @@
     <module>rag-clickhouse-index</module>
     <module>rag-clickhouse-query</module>
     <module>classify-by-llm</module>
+    <module>classify-by-embedding</module>
   </modules>
 </project>

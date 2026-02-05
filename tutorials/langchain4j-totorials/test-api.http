@@ -360,3 +360,13 @@ Accept: application/json
 {
   "prompt": "今天还房贷"
 }
+
+
+###  用提示词实现json格式的输出
+POST http://localhost:8080/api/qwen/output/classify
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "The software can not work"
+}
