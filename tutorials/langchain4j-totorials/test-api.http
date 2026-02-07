@@ -358,6 +358,15 @@ Content-Type: application/json
 Accept: application/json
 
 {
+  "prompt": "本月是二月"
+}
+
+###  用提示词实现json格式的输出
+POST http://localhost:8080/api/qwen/output/ispositive
+Content-Type: application/json
+Accept: application/json
+
+{
   "prompt": "今天还房贷"
 }
 

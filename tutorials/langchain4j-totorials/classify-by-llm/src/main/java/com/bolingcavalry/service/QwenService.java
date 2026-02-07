@@ -5,10 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.bolingcavalry.vo.HistoryEvent;
 import com.bolingcavalry.vo.Sentiment;
-
-import java.io.IOException;
 
 /**
  * 通义千问服务类，用于与通义千问模型进行交互
