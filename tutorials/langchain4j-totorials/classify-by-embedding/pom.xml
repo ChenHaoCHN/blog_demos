@@ -67,21 +67,10 @@
             <artifactId>langchain4j-core</artifactId>
         </dependency>
         
-        <!-- LangChain4j OpenAI支持（用于通义千问的OpenAI兼容接口） -->
-        <dependency>
-            <groupId>dev.langchain4j</groupId>
-            <artifactId>langchain4j-open-ai</artifactId>
-        </dependency>
-
         <!-- 官方 langchain4j（包含 AiServices 等服务类） -->
         <dependency>
             <groupId>dev.langchain4j</groupId>
             <artifactId>langchain4j</artifactId>
-        </dependency>
-
-        <dependency>
-            <groupId>dev.langchain4j</groupId>
-            <artifactId>langchain4j-community-dashscope</artifactId>
         </dependency>
 
         <dependency>

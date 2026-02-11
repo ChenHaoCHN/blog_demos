@@ -20,3 +20,8 @@ tutorials/langchain4j-totorials/.history
 disruptor-tutorials/.gradle/*
 gradlespringbootdemo/.gradle/*
 tutorials/langchain4j-totorials/*/target/*
+tutorials/springai-1.1.2-tutorials/.history
+tutorials/springai-1.1.2-tutorials/hello-world/target
+tutorials/springai-tutorials/hello-openai/target
+tutorials/springai-tutorials/ollama-chat/target
+tutorials/springai-1.1.2-tutorials/org/springframework/ai/retry
