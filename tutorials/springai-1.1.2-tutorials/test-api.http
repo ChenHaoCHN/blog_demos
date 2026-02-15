@@ -7,3 +7,7 @@ Accept: application/json
   "prompt": "简单介绍一下刘备"
 }
 
+### GET 请求测试 (如果接口支持POST)
+GET http://localhost:8080/ping
+Content-Type: application/json
+Accept: application/json
