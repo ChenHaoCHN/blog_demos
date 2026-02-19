@@ -6,6 +6,7 @@
     <modules>
         <module>hello-world</module>
         <module>virtual-thread</module>
+        <module>simple-advisor</module>
     </modules>
 
     <parent>

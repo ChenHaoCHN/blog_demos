@@ -16,7 +16,7 @@ public class ChatController {
     @GetMapping("/delay/{ms}")
     public String delay(@PathVariable int ms) throws InterruptedException {
         // 这里打印的信息可以帮我们确认当前是不是虚拟线程模式
-        // log.info("当前线程名: {}", Thread.currentThread().getName());
+        log.info("当前线程名: {}", Thread.currentThread().getName());
         Thread.sleep(ms);
         return String.format("Delayed for %dms at %s", ms, new Date());
     }
