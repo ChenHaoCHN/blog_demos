@@ -19,6 +19,8 @@ import java.util.List;
 public class TokenGuardAdvisor implements CallAdvisor {
     
     private static final Logger log = LoggerFactory.getLogger(TokenGuardAdvisor.class);
+
+    // 最大允许的 Token 数量，按照您的模型自行调整
     private static final int MAX_TOKENS = 100;
     
     @SuppressWarnings("null")
@@ -30,7 +32,7 @@ public class TokenGuardAdvisor implements CallAdvisor {
     @Override
     public int getOrder() {
         // 最高优先级，确保最先执行（尽早拦截）
-        return Ordered.HIGHEST_PRECEDENCE; 
+        return Ordered.HIGHEST_PRECEDENCE+2; 
     }
 
     @SuppressWarnings("null")

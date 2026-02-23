@@ -7,6 +7,7 @@ import org.springframework.ai.chat.client.ChatClientResponse;
 import org.springframework.ai.chat.client.advisor.api.CallAdvisor;
 import org.springframework.ai.chat.client.advisor.api.CallAdvisorChain;
 import org.springframework.ai.chat.model.ChatResponse;
+import org.springframework.core.Ordered;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -44,6 +45,6 @@ public class LoggerAdvisor implements CallAdvisor {
 
     @Override
     public int getOrder() {
-        return 2;
+        return Ordered.HIGHEST_PRECEDENCE+1;
     }
 }
