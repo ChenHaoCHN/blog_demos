@@ -9,6 +9,7 @@
         <module>simple-advisor</module>
         <module>prompt</module>
         <module>structured-output</module>
+        <module>deepseek-demo</module>
     </modules>
 
     <parent>
