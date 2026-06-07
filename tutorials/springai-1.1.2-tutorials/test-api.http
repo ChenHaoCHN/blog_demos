@@ -1,0 +1,60 @@
+### POST 请求测试 (如果接口支持POST)
+POST http://localhost:8080/chat
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "看看以下对刘备的介绍是否准确：刘备（161年－223年），字玄德，东汉末年至三国时期的重要人物，蜀汉的开国皇帝。他出生于涿郡涿县（今河北省涿州市），是汉室宗亲之一，但家境贫寒。刘备以仁德著称，在乱世中通过自己的努力逐渐崛起。\n\n刘备早年曾参与镇压黄巾起义，并在随后的一系列战争中结识了关羽、张飞等重要将领，三人情同手足，共同奋斗。后来，他还得到了诸葛亮这位杰出军师的支持，形成了“三顾茅庐”的佳话。在诸葛亮的帮助下，刘备先后占领了荆州部分地区以及益州（今四川一带），建立了自己的政权基础。\n\n公元221年，刘备在成都称帝，国号为汉，史称蜀汉或季汉。他试图复兴汉室，但最终未能实现这一目标。刘备在位期间实行了一些有利于民生的政策，促进了蜀地经济的发展。不幸的是，他在夷陵之战后不久病逝于白帝城，享年六十三岁。其子刘禅继位，继续维持着蜀汉政权直到被魏国所灭。\n\n刘备的故事在中国历史上广为流传，特别是在《三国演义》这部古典小说中被描绘得更加生动形象，成为后人敬仰的一代英主"
+}
+
+### GET 请求测试 (如果接口支持POST)
+GET http://localhost:8080/ping
+Content-Type: application/json
+Accept: application/json
+
+### POST 请求测试 (如果接口支持POST)
+POST http://localhost:8080/withresource
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "介绍一下多线程原理"
+}
+
+### POST 请求测试 (如果接口支持POST)
+POST http://localhost:8080/structured/bean
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "今天加班到很晚，感觉十分疲惫"
+}
+
+
+### POST 请求测试 (如果接口支持POST)
+POST http://localhost:8080/structured/map
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "张三，30岁，深圳Java程序员，爱好钓鱼"
+}
+
+### POST 请求测试 (如果接口支持POST)
+POST http://localhost:8080/structured/list
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "列举5个三国时期的事件，要带上年代"
+}
+
+
+### POST 请求测试 (如果接口支持POST)
+POST http://localhost:8080/deepseek/chat
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "简单介绍一下刘备"
+}

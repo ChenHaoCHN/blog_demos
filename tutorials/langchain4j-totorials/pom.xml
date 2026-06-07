@@ -1,0 +1,102 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0
+                             http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <groupId>com.bolingcavalry</groupId>
+  <artifactId>langchain4j-totorials</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>pom</packaging>
+
+  <properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <dashscope.version>1.8.0-beta15</dashscope.version>
+    <mapdb.version>3.0.9</mapdb.version>
+    <bge-small-zh-v15-q.version>1.0.0-beta5</bge-small-zh-v15-q.version>
+    <langchain4j.clickhouse.version>1.0.0-beta4</langchain4j.clickhouse.version>
+  </properties>
+  
+  <dependencyManagement>
+    <dependencies>
+      <!-- Spring Boot BOM -->
+      <dependency>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-dependencies</artifactId>
+        <version>3.3.5</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+      
+      <!-- LangChain4j BOM (Bill of Materials) -->
+      <!-- BOM只负责版本管理，不会实际引入依赖 -->
+      <!-- 子模块需要显式声明所需的依赖，但可以省略版本号 -->
+      <dependency>
+        <groupId>dev.langchain4j</groupId>
+        <artifactId>langchain4j-bom</artifactId>
+        <version>1.8.0</version>
+        <type>pom</type>
+        <scope>import</scope>
+      </dependency>
+
+      <!-- langchain4j-community-dashscope-spring-boot-starter不在BOM中，需要显式声明版本 -->
+      <dependency>
+            <groupId>dev.langchain4j</groupId>
+            <artifactId>langchain4j-community-dashscope</artifactId>
+            <version>${dashscope.version}</version>
+        </dependency>
+      <!-- 日志依赖由Spring Boot BOM自动管理，无需在此指定版本 -->
+
+      <dependency>
+            <groupId>org.mapdb</groupId>
+            <artifactId>mapdb</artifactId>
+            <version>${mapdb.version}</version>
+            <exclusions>
+                <exclusion>
+                    <groupId>org.jetbrains.kotlin</groupId>
+                    <artifactId>kotlin-stdlib</artifactId>
+                </exclusion>
+            </exclusions>
+      </dependency>
+
+      <dependency>
+        <groupId>dev.langchain4j</groupId>
+        <artifactId>langchain4j-embeddings-bge-small-zh-v15-q</artifactId>
+        <version>${bge-small-zh-v15-q.version}</version>
+      </dependency>
+
+      <!-- langchain4j-community-clickhouse不在BOM中，需要显式声明版本 -->
+      <dependency>
+          <groupId>dev.langchain4j</groupId>
+          <artifactId>langchain4j-community-clickhouse</artifactId>
+          <version>${langchain4j.clickhouse.version}</version>
+      </dependency>
+    </dependencies>
+
+
+  </dependencyManagement>
+
+  <!-- 子模块列表 -->
+  <modules>
+    <module>hello-world</module>
+    <module>demo-with-spring-boot</module>
+    <module>image-tutorial</module>
+    <module>memory</module>
+    <module>streaming-response</module>
+    <module>ai-service-code-and-annonation</module>
+    <module>ai-service-only-annonation</module>
+    <module>output-by-prompt</module>
+    <module>output-by-function-call</module>
+    <module>output-by-json-mode</module>
+    <module>tools-low-level</module>
+    <module>tools-high-level</module>
+    <module>rag-easy</module>
+    <module>rag-naive</module>
+    <module>rag-clickhouse-index</module>
+    <module>rag-clickhouse-query</module>
+    <module>classify-by-llm</module>
+    <module>classify-by-embedding</module>
+  </modules>
+</project>

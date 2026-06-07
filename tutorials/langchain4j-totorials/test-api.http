@@ -1,0 +1,381 @@
+# 测试 Qwen API 接口
+
+### GET 请求测试
+GET http://localhost:8080/api/qwen
+Accept: application/json
+
+### POST 请求测试 (如果接口支持POST)
+POST http://localhost:8080/api/qwen/chat
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "简单介绍一下曹操？"
+}
+
+### POST 请求测试 (如果接口支持POST)
+POST http://localhost:8080/api/qwen/aiservicesimplechat
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "你好，请介绍一下自己，包括详细的版本信息以及当前的年月日时分秒"
+}
+
+### 测试带参数的 GET 请求
+GET http://localhost:8080/api/qwen?query=你好世界
+Accept: application/json
+
+
+### POST 请求测试 (如果接口支持POST)
+POST http://localhost:8080/api/qwen/aiservicetemplatechat
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "三国演义"
+}
+
+### POST 使用系统消息的模板对话
+POST http://localhost:8080/api/qwen/aiservicetemplatechatwithsysmsg
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "三国演义"
+}
+
+### POST 模拟多轮对话
+POST http://localhost:8080/api/qwen/simulatemultiroundchat
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "他有哪些主要对手？"
+}
+
+### POST 使用 ChatRequest 作为入参
+POST http://localhost:8080/api/qwen/usechatrequest
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "Java最新版本有哪些特性？"
+}
+
+### POST 使用 ChatRequest 作为入参
+POST http://localhost:8080/api/qwen/useimage
+Content-Type: application/json
+Accept: application/json
+
+{
+  "imageUrl": "https://dashscope-result-hz.oss-cn-hangzhou.aliyuncs.com/7d/eb/20251207/31eda923/f546ac30-5076-4b23-917a-d25e8c766636-1.png?Expires=1765721870&OSSAccessKeyId=LTAI5tKPD3TMqf2Lna1fASuh&Signature=%2FdUYzAW2TMCiyC83uJ2LmiZx4Mo%3D",
+  "prompt": "图片中的人手上拿着什么？"
+}
+
+### POST 使用图像模型生成图片
+POST http://localhost:8080/api/qwen/generateimage
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "生成一张图片，内容是三国演义中的威震逍遥津",
+  "imageNum": 2
+}
+
+### POST 使用图像模型编辑图片
+POST http://localhost:8080/api/qwen/editimage
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "图1中的女生穿着图2中的黑色裙子按图3的姿势坐下",
+  "imageUrls": [
+    "https://help-static-aliyun-doc.aliyuncs.com/file-manage-files/zh-CN/20250925/thtclx/input1.png",
+    "https://help-static-aliyun-doc.aliyuncs.com/file-manage-files/zh-CN/20250925/iclsnx/input2.png",
+    "https://help-static-aliyun-doc.aliyuncs.com/file-manage-files/zh-CN/20250925/gborgw/input3.png"
+  ]
+}
+
+
+### POST 1.1 低级API，通过手动添加ChatMessage到集合实现聊天记忆
+POST http://localhost:8080/api/qwen/lowlevel/addrawchatmessage
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "一百字介绍曹操"
+}
+
+### POST 1.2 低级API，通过手动添加ChatMessage到集合实现聊天记忆
+POST http://localhost:8080/api/qwen/lowlevel/addrawchatmessage
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "他有哪些主要对手？"
+}
+
+### POST 2.1 低级API，把ChatMessage添加到ChatMemory实现聊天记忆
+POST http://localhost:8080/api/qwen/lowlevel/addchatmessagetochatmemory
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "一百字介绍曹操"
+}
+
+### POST 2.2 低级API，把ChatMessage添加到ChatMemory实现聊天记忆
+POST http://localhost:8080/api/qwen/lowlevel/addchatmessagetochatmemory
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "他有哪些文学成就？"
+}
+
+
+### POST 3.1 低级API，通过ConversationChain实现聊天记忆
+POST http://localhost:8080/api/qwen/lowlevel/byconversationchain
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "一百字介绍曹操"
+}
+
+### POST 3.2 低级API，通过ConversationChain实现聊天记忆
+POST http://localhost:8080/api/qwen/lowlevel/byconversationchain
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "他在与北方游牧民族的军事斗争中有哪些成就？"
+}
+
+
+### POST 4.1 高级API，基于内存的全局记忆
+POST http://localhost:8080/api/qwen/highlevel/ram/global
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "一百字介绍曹操"
+}
+
+### POST 4.2 高级API，基于内存的全局记忆
+POST http://localhost:8080/api/qwen/highlevel/ram/global
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "他在军事上的最高成就是什么？"
+}
+
+
+### 5.1 POST 高级API，基于内存的用户记忆
+POST http://localhost:8080/api/qwen/highlevel/ram/byuserid
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userId": 1001,
+  "prompt": "一百字介绍曹操"
+}
+
+### 5.2 POST 高级API，基于内存的用户记忆
+POST http://localhost:8080/api/qwen/highlevel/ram/byuserid
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userId": 1001,
+  "prompt": "他的政治思想的根源是哪里？"
+}
+
+
+### POST 6.1 高级API，基于数据库的全局记忆
+POST http://localhost:8080/api/qwen/highlevel/db/global
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "一百字介绍曹操"
+}
+
+### POST 6.2 高级API，基于数据库的全局记忆
+POST http://localhost:8080/api/qwen/highlevel/db/global
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "他面临过的最大挑战是什么？"
+}
+
+### POST 7.1 高级API，基于数据库的全局记忆
+POST http://localhost:8080/api/qwen/highlevel/db/byuserid
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userId": 1001,
+  "prompt": "一百字介绍曹操"
+}
+
+### POST 7.2 高级API，基于数据库的全局记忆
+POST http://localhost:8080/api/qwen/highlevel/db/byuserid
+Content-Type: application/json
+Accept: application/json
+
+{
+  "userId": 1001,
+  "prompt": "他的军事思想对后世有什么影响？"
+}
+
+
+### POST 最简单的流式响应
+POST http://localhost:8080/api/qwen/normalstreamingchat
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "一百字介绍曹操"
+}
+
+### POST 高级API的实例用AiService注解创建，model实例在配置类中用代码创建
+POST http://localhost:8080/api/qwen/codeandannonation/simplechat
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "介绍一下曹操的五子良将"
+}
+
+
+###  高级API的实例用AiService注解创建，model实例用配置信息和openai的starter创建
+POST http://localhost:8080/api/qwen/onlyannonation/simplechat
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "介绍一下西魏八柱国"
+}
+
+
+
+###  用提示词实现json格式的输出
+POST http://localhost:8080/api/qwen/output/byprompt
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "给出伊阙之战的关键信息，以json格式输出，字段包括：主要人物、时间、简介，格式是{\"main_characters\":[\"\",\"\"],\"year\":2000,\"description\":\"\"}"
+}
+
+###  用提示词实现json格式的输出
+POST http://localhost:8080/api/qwen/output/byfunctioncall
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "介绍昆阳之战"
+}
+
+###  用提示词实现json格式的输出
+POST http://localhost:8080/api/qwen/output/modelfromobject
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "介绍白江川之战"
+}
+
+###  用提示词实现json格式的输出
+POST http://localhost:8080/api/qwen/output/modelfromschema
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "介绍六镇之乱"
+}
+
+
+### 查询天气，内部实现是低级API
+POST http://localhost:8080/api/qwen/tool/low/getwether
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "深圳天气"
+}
+
+###  用提示词实现json格式的输出
+POST http://localhost:8080/api/qwen/tool/high/getwether
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "深圳气温，简单回答"
+}
+
+###  用提示词实现json格式的输出
+POST http://localhost:8080/api/qwen/rag/easy
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "一百字介绍完顏陳和尚"
+}
+
+###  用提示词实现json格式的输出
+POST http://localhost:8080/api/qwen/rag/naive
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "一百字介绍完顏陳和尚"
+}
+
+###  开始索引，数据保存在clickhouse中
+POST http://localhost:8080/api/qwen/rag/startindex
+Content-Type: application/json
+Accept: application/json
+
+{}
+
+###  用提示词实现json格式的输出
+POST http://localhost:8080/api/qwen/rag/clickhouse
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "一百字介绍完顏陳和尚"
+}
+
+###  用提示词实现json格式的输出
+POST http://localhost:8080/api/qwen/output/analyzesentimentof
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "本月是二月"
+}
+
+###  用提示词实现json格式的输出
+POST http://localhost:8080/api/qwen/output/ispositive
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "今天还房贷"
+}
+
+
+###  用提示词实现json格式的输出
+POST http://localhost:8080/api/qwen/output/classify
+Content-Type: application/json
+Accept: application/json
+
+{
+  "prompt": "The software can not work"
+}
